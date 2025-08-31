@@ -5,8 +5,17 @@ using UnityEngine;
 
 public class ChessHandles : MonoBehaviour
 {
+    public enum ChessParts
+    {
+        Bishop,
+        King,
+        Queen,
+        Knight,
+        Pawn,
+        Rook
+    }
     //enum drop down
-    public ChessPieces.ChessParts piece = ChessPieces.ChessParts.Queen;
+    public ChessParts piece = ChessParts.Queen;
 }
 
 
@@ -30,7 +39,7 @@ public class EChessHandles : Editor
        
         switch (t.piece)
         {
-            case ChessPieces.ChessParts.Queen:
+            case ChessHandles.ChessParts.Queen:
                 Handles.DrawLine(pos, (pos + Vector3.up *5), 5);           //up the *5 is to make that line longer
                 Handles.DrawLine(pos, (pos + Vector3.right *5), 5);        //right
                 Handles.DrawLine(pos, (pos + Vector3.left * 5), 5);         //left
@@ -42,14 +51,14 @@ public class EChessHandles : Editor
                 Handles.DrawLine(pos, (pos + (Vector3.down + Vector3.left) * 5), 3);    // neg diag left
                 break;
 
-            case ChessPieces.ChessParts.Rook:
+            case ChessHandles.ChessParts.Rook:
                 Handles.DrawLine(pos, (pos + Vector3.up *5), 5);           //up
                 Handles.DrawLine(pos, (pos + Vector3.right *5), 5);        //right
                 Handles.DrawLine(pos, (pos + Vector3.left*5),5);         //left
                 Handles.DrawLine(pos, (pos + Vector3.down * 5), 5);         //down
                 break;
 
-            case ChessPieces.ChessParts.Bishop:
+            case ChessHandles.ChessParts.Bishop:
                 Handles.DrawLine(pos, (pos + (Vector3.up + Vector3.right) * 5), 3);     //diag right
                 Handles.DrawLine(pos, (pos + (Vector3.up + Vector3.left) * 5), 3);      //diag left
                 Handles.DrawLine(pos, (pos + (Vector3.down + Vector3.right) * 5), 3);   // neg diag right
@@ -57,7 +66,7 @@ public class EChessHandles : Editor
 
                 break;
 
-            case ChessPieces.ChessParts.Knight:
+            case ChessHandles.ChessParts.Knight:
 
                /* Handles.DrawLine(pos, pos + (Vector3.right * 1 + Vector3.up * 2), 5);      // ( +2 right, +3 up )
                 Handles.DrawLine(pos, pos + (Vector3.left * 2 + Vector3.up * 2), 5);    // ( +2 left, +3 up )*/
@@ -89,7 +98,7 @@ public class EChessHandles : Editor
                 Handles.DrawWireDisc(lDTarget, Vector3.forward, 0.2f);
                 break;
 
-            case ChessPieces.ChessParts.King:
+            case ChessHandles.ChessParts.King:
                 Handles.DrawLine(pos, (pos + Vector3.up), 5);           //up
                 Handles.DrawLine(pos, (pos + Vector3.right), 5);        //right
                 Handles.DrawLine(pos, (pos + Vector3.left), 5);         //left
@@ -100,7 +109,7 @@ public class EChessHandles : Editor
                 Handles.DrawLine(pos, (pos + (Vector3.down + Vector3.left)), 3);    // neg diag left
                 break;
 
-            case ChessPieces.ChessParts.Pawn:
+            case ChessHandles.ChessParts.Pawn:
                 
                 Handles.DrawLine(pos, (pos + Vector3.up *2), 5);               //up
                 break;
