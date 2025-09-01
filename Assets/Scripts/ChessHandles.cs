@@ -16,9 +16,14 @@ public class ChessHandles : MonoBehaviour
     }
     //enum drop down
     public ChessParts piece = ChessParts.Queen;
+
+    public string chessString;
+    
     void OnDrawGizmos()
     {
-        Gizmos.DrawIcon(Vector3.zero, "Bishop.png", true, Color.red);
+        chessString = piece.ToString() + ".png";
+
+        Gizmos.DrawIcon(transform.position, chessString, true, Color.red);
     }
 }
 
